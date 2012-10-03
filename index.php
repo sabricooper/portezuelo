@@ -1,13 +1,19 @@
-<?php 
+<?php
+/**
+ * @author cesardluis
+ * @copyright 2011
+ */
+define("_VALID_", true);
+include_once("classes.php");
+include_once ("template/index.php");
+require_once('libs/config.php');
+
 session_start();
-include ("libs.php"); 
-if (empty($_SESSION["registro"]["registrado"]) && !$_SESSION["registro"]["registrado"]){
-	header("Location: login.php");
+if (!$_SESSION['session']['sesion_register']) {
+    header("Location: login.php");
 }
-$post = $_POST;
-$get = $_GET;
-$module = $_GET["module"];
 
-$programa = new $module( $post, $get );
+$home = new template();
 
+$home->mostrar();
 ?>
