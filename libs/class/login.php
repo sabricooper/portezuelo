@@ -30,7 +30,7 @@ class login{
                 $html->mostrar();
             }
         }else{
-            $html = new varHtml('form_login');
+            $html = new varHtml('login');
             $html->mostrar();
         }
         

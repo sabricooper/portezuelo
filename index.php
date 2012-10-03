@@ -5,7 +5,7 @@
  */
 define("_VALID_", true);
 include_once("classes.php");
-include_once ("template/index.php");
+include_once ("templates/index.php");
 require_once('libs/config.php');
 
 session_start();

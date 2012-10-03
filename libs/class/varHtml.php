@@ -11,7 +11,7 @@ class varHtml{
         $this->inHtml($file, $vars);
     }
     public function inHtml($file, $vars){
-         if ($this->html = file_get_contents("template/html/".$file.".tpl")) {
+         if ($this->html = file_get_contents("templates/html/".$file.".html")) {
             
             $variables = array();
             $valores = array();
