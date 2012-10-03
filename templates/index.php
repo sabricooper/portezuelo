@@ -17,7 +17,7 @@ class template {
     
     
     public function __construct($templatFile='default') {
-        $this->tpl_file = "../".$templatFile;
+        $this->tpl_file = $templatFile;
         $this->config['menutop'] = $_SESSION['session']['nombre']." - <a href='login.php?accion=cerrarSession'>Salir</a>";
         
         //$this->mysql = new MysqlDB();
