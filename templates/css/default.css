@@ -46,20 +46,26 @@ section article{
 h1,h2,h3,h4{
 	padding: 2px 0 2px 30px;
 	margin: 3px 0px 10px;
-	border-bottom: 2px solid #74c403;
-	color: #74c403;
+	border-bottom: 2px solid #4e4bed;
+	color: #4e4bed;
 }
 table,th{
 	border: 1px solid #333;
 }
 section.login{
-	width: 300px;
+	width: 400px;
 	margin: 200px auto 0;
 	padding: 20px;
 	text-align: center;
 }
 section.formulario label{
 	width: 180px;
+	text-align: right;
+	display: inline-block;
+	margin-bottom: 10px;
+}
+section.login label{
+	width: 100px;
 	text-align: right;
 	display: inline-block;
 	margin-bottom: 10px;
