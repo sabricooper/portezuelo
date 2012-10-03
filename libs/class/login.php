@@ -15,7 +15,7 @@ class login{
     public function iniciarSession($user, $pass){
         if($user!=''){
             $pass = md5($pass);
-            $result = $this->mysql->query("SELECT * FROM ndh_users WHERE user = '$user' AND pass = '$pass'");
+            $result = $this->mysql->query("SELECT * FROM operadores WHERE user = '$user' AND pass = '$pass'");
             if (count($result) > 0) {
                 $_SESSION['session']['sesion_register'] = true;
                 $_SESSION['session']['user'] = $result[0]['user'];
@@ -26,7 +26,7 @@ class login{
             }else{
                 $vars = array('error' => '<p style="color:#FF0000;font-weight:bold">El nombre de Usuario y La contrase&ntilde;a que ha introducido 
                                <br />no son correspondidos o no existen.</p>', 'user' => $user);
-                $html = new varHtml('form_login', $vars);
+                $html = new varHtml('login', $vars);
                 $html->mostrar();
             }
         }else{
