@@ -1,0 +1,66 @@
+body{
+	background-color: #333;
+	color: #000;
+	margin: 0;
+	padding: 0;
+	font-family: Arial, Helvetica, sans-serif;
+}
+header,section,footer{
+	display: block;
+	background-color: #fff;
+	margin: 5px 3%;
+	padding: .5%;
+	border-radius: 10px;
+}
+header .left, header .right, section article{
+	display: inline-block;
+	vertical-align: top;
+	width: 49.5%;
+
+}
+header .right{
+	text-align: right;
+}
+a{
+	display: inline-block;
+	vertical-align: top;
+	color: #fff;
+	border: 1px solid #aaa;
+	border-radius: 5px;
+	padding: 4px;
+	text-decoration:none;
+	background-color: #1d95e0; 
+
+}
+a:hover{
+	background-color: #41aef2;
+}
+section article{
+	border: 1px solid #333;
+	border-radius: 10px;
+	padding:5px;
+	width: 48.5%;
+	min-height: 400px;
+
+}
+h1,h2,h3,h4{
+	padding: 2px 0 2px 30px;
+	margin: 3px 0px 10px;
+	border-bottom: 2px solid #74c403;
+	color: #74c403;
+}
+table,th{
+	border: 1px solid #333;
+}
+section.login{
+	width: 300px;
+	margin: 200px auto 0;
+	padding: 20px;
+	text-align: center;
+}
+section.formulario label{
+	width: 180px;
+	text-align: right;
+	display: inline-block;
+	margin-bottom: 10px;
+}
