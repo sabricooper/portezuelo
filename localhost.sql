@@ -3,23 +3,15 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 03-10-2012 a las 22:35:18
+-- Tiempo de generación: 04-10-2012 a las 23:29:02
 -- Versión del servidor: 5.1.53
 -- Versión de PHP: 5.3.4
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
-
 --
 -- Base de datos: `portezuelo`
 --
-CREATE DATABASE `portezuelo` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `portezuelo`;
 
 -- --------------------------------------------------------
 
@@ -142,16 +134,15 @@ CREATE TABLE IF NOT EXISTS `operadores` (
   `nombre` varchar(150) NOT NULL,
   `direccion` varchar(200) NOT NULL,
   `celular` int(20) NOT NULL,
-  `tipo` int(10) NOT NULL,
-  `user` int(11) NOT NULL,
-  `pass` varchar(100) NOT NULL,
+  `tipo` varchar(10) NOT NULL,
+  `user` varchar(50) NOT NULL,
+  `pass` varchar(200) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+);
 
 --
 -- Volcar la base de datos para la tabla `operadores`
 --
-
 
 -- --------------------------------------------------------
 
