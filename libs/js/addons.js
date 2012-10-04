@@ -12,17 +12,21 @@ function winModal(){
             modal: (vars[3]=="true") ? true:false
 
         };
-        
-        if(vars[4]!= 'html'){
-            var modal = $("<div id='"+item.id+"' title='"+ item.title +"'>"
-                    + "<iframe align='middle' width='100%' height='100%' frameborder='0' marginwidth='0' marginheight='0' id='adpiframe' name='adpiframe' "
-                    + "src='"+ item.url +"'></iframe></div>");                   
-            
-            $("body").append(modal);
-            var winModal = $("#"+item.id);
-        } else {
-            var winModal = $("#"+item.url);
+        if ($("#"+item.id).length <= 0) {
+            if(vars[4]!= 'html'){
+                var modal = $("<div id='"+item.id+"' title='"+ item.title +"'>"
+                        + "<iframe align='middle' width='100%' height='100%' frameborder='0' marginwidth='0' marginheight='0' id='adpiframe' name='adpiframe' "
+                        + "src='"+ item.url +"'></iframe></div>");                   
+                
+                $("body").append(modal);
+                var winModal = $("#"+item.id);
+            } else {
+                var winModal = $("#"+item.url);
+            }
+
         }
+        
+        
 
 
         winModal.dialog({

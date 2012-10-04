@@ -5,7 +5,7 @@ defined('_VALID_') or die('Acceso restringido.');
 //Configuramos si esta enonline o ofline
 define("ONLINE_WEB", false);
 
-define("KEY_PASS", "ASdasfDSfSDfdwqe$632434edf3215448fgdf-_asdaqqeTDGHUSADF");
+define("KEY_PASS", "ASdasfDSfSDfdwqe$632434edf3215448fgdf-_asdaqqeTDGHUSADF"); //cambiar esto al moemnto de instalar
 
 if (ONLINE_WEB) {
     //direccion de la base de datos a usar
