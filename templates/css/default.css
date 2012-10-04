@@ -1,9 +1,9 @@
 body{
 	background-color: #333;
-	color: #000;
+	color: #444;
 	margin: 0;
 	padding: 0;
-	font-family: Arial, Helvetica, sans-serif;
+	font-family: Verdana,Arial,Helvetica,sans-serif;
 }
 header,section,footer{
 	display: block;
@@ -46,19 +46,19 @@ section article{
 h1,h2,h3,h4{
 	padding: 2px 0 2px 30px;
 	margin: 3px 0px 10px;
-	border-bottom: 2px solid #4e4bed;
-	color: #4e4bed;
+	border-bottom: 2px solid #006bc4;
+	color: #006bc4;
 }
 table,th{
 	border: 1px solid #333;
 }
 section.login{
-	width: 400px;
+	width: 500px;
 	margin: 200px auto 0;
 	padding: 20px;
 	text-align: center;
 }
-section.formulario label{
+section.formulario label, section.login label{
 	width: 180px;
 	text-align: right;
 	display: inline-block;
@@ -66,7 +66,22 @@ section.formulario label{
 }
 section.login label{
 	width: 100px;
-	text-align: right;
-	display: inline-block;
-	margin-bottom: 10px;
+	padding: 2px 3px 8px;
+}
+
+input[type="text"], input[type="password"], select {
+    border-radius: 4px;
+    border: 1px solid #999999;
+    color: #808080;
+    font-size: 16px;
+    height: 25px;
+    line-height: 22px;
+    margin: 0;
+    outline-width: 0;
+    padding: 3px;
+    width: 200px;
+}
+input[type="text"]:focus, select:focus, textarea:focus, input[type="password"]:focus, select:focus {
+    border-color: #ADD8E6;
+    box-shadow: 0 0 4px #008bff;
 }
