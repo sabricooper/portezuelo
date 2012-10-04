@@ -11,11 +11,11 @@ if (ONLINE_WEB) {
     //direccion de la base de datos a usar
     define("MYSQL_HOST", 'localhost');
     //Defino la base de datos a la que selecciono.
-    define("MYSQL_NAME", 'bd_ndhgeo');
+    define("MYSQL_NAME", '');
     //Nombre de usuarios
-    define("MYSQL_USER", 'geo');
+    define("MYSQL_USER", '');
     //contraseña
-    define("MYSQL_PASS", 'ndhgeo1375');
+    define("MYSQL_PASS", '');
     error_reporting(0);
     //nombre de host
     define("SERVER_NAME", '');
