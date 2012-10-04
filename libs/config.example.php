@@ -5,6 +5,8 @@ defined('_VALID_') or die('Acceso restringido.');
 //Configuramos si esta enonline o ofline
 define("ONLINE_WEB", false);
 
+define("KEY_PASS", "ASdasfDSfSDfdwqe$632434edf3215448fgdf-_asdaqqeTDGHUSADF");
+
 if (ONLINE_WEB) {
     //direccion de la base de datos a usar
     define("MYSQL_HOST", 'localhost');
