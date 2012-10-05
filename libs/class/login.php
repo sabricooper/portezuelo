@@ -15,7 +15,6 @@ class login{
     public function iniciarSession($user, $pass){
         if($user!=''){
             $pass = hash_hmac('ripemd128', $pass, KEY_PASS);
-            echo $pass;
             $result = $this->mysql->query("SELECT * FROM operadores WHERE user = '$user' AND pass = '$pass'");
             if (count($result) > 0) {
                 $_SESSION['session']['sesion_register'] = true;

@@ -18,7 +18,7 @@
 <body>
 	<header>
 		<div class="left">
-			<h3>Portezuelo</h3>			
+			<h3>Cuesta del Portezuelo</h3>			
 		</div>
 		<div class="right">
 			{menutop}
@@ -26,19 +26,19 @@
 	</header>
 	<nav>
 		<ul>
-			<li><a href="accion.php?name=articulos" class="nwin" id="articulos" title="Articulos" rev='700,400,center,true,iframe'>Articulos</a></li>
-			<li><a href="accion.php?name=facturas" class="nwin" id="facturas" title="Facturar" rev='700,400,center,true,iframe'>Facturas</a></li></li>
-			<li><a href="accion.php?name=clientes" class="nwin" id="clientes" title="Nuevo Cliente" rev='700,400,center,true,iframe'>Clientes</a></li>
-			<li><a href="accion.php?name=operadores" class="nwin" id="operadores" title="Crear Operador" rev='700,400,center,true,iframe'>Operadores</a>
+			<li><a href="articulos" id="articulos" class="json_request">Articulos</a></li>
+			<li><a href="facturas" id="facturas" class="json_request">Facturas</a></li></li>
+			<li><a href="clientes" id="clientes" class="json_request">Clientes</a></li>
+			<li><a href="operadores" id="operadores" class="json_request">Operadores</a>
 		</ul>
 	</nav>
 	<nav class="sub">
 		<ul>
-			<li><a href="accion.php?name=articulos&option=nuevoArticulo" class="nwin" id="nuevoArticulo" title="Nuevo Articulos" rev='700,400,center,true,iframe'>Nuevo Articulo</a></li>
+			<li><a href="accion.php?name=articulos&opcion=nuevoArticulo" class="nwin" id="nuevoArticulo" title="Nuevo Articulos" rev='700,400,center,true,iframe'>Nuevo Articulo</a></li>
 		</ul>
 	</nav>
 	<section>
-		<article>
+		<article id="contenedor">
 			<h2>Articulos</h2>
 			<table border="0" width="100%" cellpadding="0" cellspacing="0">
 				<thead>
