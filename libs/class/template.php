@@ -5,12 +5,14 @@
  * @copyright 2011
  */
 
-class varHtml{
+class Template{
     var $html;
     public function __construct($file, $vars=array()) {
         $this->inHtml($file, $vars);
+        $this->mostrar();
+
     }
-    public function inHtml($file, $vars){
+    private function inHtml($file, $vars){
          if ($this->html = file_get_contents("templates/html/".$file.".html")) {
             
             $variables = array();
@@ -27,12 +29,9 @@ class varHtml{
             echo 'Error al abrir la plantilla '.$file;
         }
     }
-    public function mostrar(){
+    private function mostrar(){
         echo $this->html;
     }
-    
-
-    
 }
 
 ?>

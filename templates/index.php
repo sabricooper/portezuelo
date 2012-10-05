@@ -4,7 +4,7 @@
  * @copyright 2011
  */
 
-class template {
+class Inicio {
     var $config = array(
         "titulo"    => "Administrador Portezuelo", 
         "logo"      => "",
@@ -20,19 +20,20 @@ class template {
         $this->tpl_file = $templatFile;
         $this->config['menutop'] = $_SESSION['session']['nombre']." - <a href='login.php?accion=cerrarSession'>Salir</a>";
         
-        //$this->mysql = new MysqlDB();
-        //$menu = $this->mysql->query("SELECT * FROM `ndh_menu` ORDER BY `ndh_menu`.`orden` ASC");
+        /*$this->mysql = new MysqlDB();
+        $menu = $this->mysql->query("SELECT * FROM `ndh_menu` ORDER BY `ndh_menu`.`orden` ASC");
 
-        //$menuLink = '';
-        /*//for ($i=0; $i < count($menu); $i++) {
+        $menuLink = '';
+        for ($i=0; $i < count($menu); $i++) {
             if (in_array($menu[$i]['class'], $_SESSION['session']['priv']))
                 $menuLink .= ' <li><a href="'.$menu[$i]['class'].'" class="'.$menu[$i]['tipo'].'">'.$menu[$i]['nombre'].'</a></li>';
-        }*/
+        }
 
-        //$this->config['menu'] = $menuLink;
+        $this->config['menu'] = $menuLink;*/
     }
-    public  function mostrar() {
-        $html = new varHtml($this->tpl_file, $this->config);
+    
+    public function mostrar() {
+        $html = new Template($this->tpl_file, $this->config);
         $html->mostrar();
     }
 }

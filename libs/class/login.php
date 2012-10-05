@@ -27,12 +27,10 @@ class login{
             }else{
                 $vars = array('error' => '<p style="color:#FF0000;font-weight:bold">El nombre de Usuario y La contrase&ntilde;a que ha introducido 
                                <br />no son correspondidos o no existen.</p>', 'user' => $user);
-                $html = new varHtml('login', $vars);
-                $html->mostrar();
+                new Template('login', $vars);
             }
         }else{
-            $html = new varHtml('login');
-            $html->mostrar();
+            new Template('login');
         }
         
     }

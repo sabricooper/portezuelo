@@ -7,7 +7,7 @@
 
 define("_VALID_", true);
 require_once('libs/config.php');
-include_once("classes.php");
+require_once("classes.php");
 
 	$login = new login();
 	session_start();

@@ -27,8 +27,7 @@ class users{
         $id = $this->vars['id'];
         $result = $this->mysql->query("SELECT  * FROM  `ndh_users`  WHERE `id` = $id;");
         $result[0]['mensaje'] = '';
-        $html = new varHtml('userVer', $result[0]);
-        $html->mostrar();
+        new Template('userVer', $result[0]);
     }
     private function nuevoUser(){
         $menu = $this->mysql->get("ndh_menu");
@@ -39,8 +38,7 @@ class users{
 
         //configguraciones adicionales
         $config = array("optionMenu" => $optionMenu);
-        $html = new varHtml('userNuevo',  $config);
-        $html->mostrar();
+        new Template('userNuevo',  $config);
     }
     private function nuevoUserProcesar(){
         $vars = $this->vars;
@@ -74,8 +72,7 @@ class users{
 
         //configguraciones adicionales
 
-        $html = new varHtml('userEditar',  $result[0]);
-        $html->mostrar();
+        new Template('userEditar',  $result[0]);
     }
     private function editarUserProcesar(){
         $vars = $this->vars;
@@ -95,8 +92,7 @@ class users{
         if($result){
             $insertData['mensaje'] = 'Los datos se han guardado correctamente! <br>'; 
             $insertData['id'] = $vars['id']; 
-            $html = new varHtml('userVer', $insertData);
-            $html->mostrar();
+            new Template('userVer', $insertData);
         }else{
             echo "No se realizo ningun cambio! ";
         }
@@ -106,8 +102,7 @@ class users{
     private function eliminarUser(){
         $id = $this->vars['id'];
         $result = $this->mysql->query("SELECT  * FROM  `ndh_users`  WHERE `id` = $id;");
-        $html = new varHtml('userEliminar',  $result[0]);
-        $html->mostrar();
+        Template('userEliminar',  $result[0]);
     }
     private function eliminarUserProcesar(){
         $this->mysql->where("id", $this->vars['id']);
