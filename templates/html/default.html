@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>portezuelo</title> 
+	<link rel="stylesheet" href="templates/css/normalize.css">
 	<link rel="stylesheet" href="templates/css/default.css">
 	<link rel="shortcut icon" href="templates/img/icono.ico">
 	<link rel="stylesheet" href="libs/css/jquery-ui-1.8.16.custom.css" />
@@ -17,44 +18,53 @@
 <body>
 	<header>
 		<div class="left">
-			<a href="accion.php?name=operadores&opcion=nuevoOperador" class="nwin" id="nuevoOperador" title="Crear Operador" rev='700,400,center,true,iframe'>Crear Operador</a>
-			<a href="accion.php?name=clientes&opcion=nuevoCliente" class="nwin" id="nuevoCliente" title="Nuevo Cliente" rev='700,400,center,true,iframe'>Nuevo Cliente</a>
-			<a href="accion.php?name=articulos" class="nwin" id="articulos" title="Articulos" rev='700,400,center,true,iframe'>Articulos</a>
-			<a href="accion.php?name=facturas" class="nwin" id="facturas" title="Facturar" rev='700,400,center,true,iframe'>Facturar</a>
+			<h3>Portezuelo</h3>			
 		</div>
 		<div class="right">
 			{menutop}
 		</div>
 	</header>
+	<nav>
+		<ul>
+			<li><a href="accion.php?name=articulos" class="nwin" id="articulos" title="Articulos" rev='700,400,center,true,iframe'>Articulos</a></li>
+			<li><a href="accion.php?name=facturas" class="nwin" id="facturas" title="Facturar" rev='700,400,center,true,iframe'>Facturas</a></li></li>
+			<li><a href="accion.php?name=clientes" class="nwin" id="clientes" title="Nuevo Cliente" rev='700,400,center,true,iframe'>Clientes</a></li>
+			<li><a href="accion.php?name=operadores" class="nwin" id="operadores" title="Crear Operador" rev='700,400,center,true,iframe'>Operadores</a>
+		</ul>
+	</nav>
+	<nav class="sub">
+		<ul>
+			<li><a href="accion.php?name=articulos&option=nuevoArticulo" class="nwin" id="nuevoArticulo" title="Nuevo Articulos" rev='700,400,center,true,iframe'>Nuevo Articulo</a></li>
+		</ul>
+	</nav>
 	<section>
 		<article>
-			<h2>Ultimos Clientes</h2>
+			<h2>Articulos</h2>
 			<table border="0" width="100%" cellpadding="0" cellspacing="0">
 				<thead>
 					<tr>
+						<th>╩</th>
 						<th>Codigo</th>
 						<th>Nombre</th>
-						<th>Fecha</th>
+						<th>stock</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
-						<td></td>
-						<td></td>
-						<td></td>
+						<td><input type="checkbox" name="sele" id=""></td>
+						<td>15646433</td>
+						<td>Coca-cola</td>
+						<td>52</td>
 					</tr>
 				</tbody>
 			</table>
-		</article>
-		<article>
-			<input type="text" id="buscar">
 		</article>
 	</section>
 	<article>
 		
 	</article>
 	<footer>
-		footer
+		&copy; por Sabricooper ;)
 	</footer>
 </body>
 </html>
