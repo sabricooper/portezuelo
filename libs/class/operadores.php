@@ -4,7 +4,7 @@
  * @author cesardluis
  * @copyright 2011
  */
-class users{
+class operadores{
     var $opcion;
     var $vars;
     var $mysql;
@@ -14,22 +14,22 @@ class users{
         if(isset($vars['opcion']))
             $this->opcion = $vars['opcion'];
         else
-            $this->opcion = 'tablaUsers';
+            $this->opcion = 'operadores';
     }
-    private function tablaUsers(){
+    private function operadores(){
         
-        $users = $this->mysql->get("ndh_users");
+        $operadores = $this->mysql->get("operadores");
 
         header("content-type: text/javascript");
-        echo json_encode($users);
+        echo json_encode($operadores);
     }
-    private function verUser(){
+    private function verOperador(){
         $id = $this->vars['id'];
-        $result = $this->mysql->query("SELECT  * FROM  `ndh_users`  WHERE `id` = $id;");
+        $result = $this->mysql->query("SELECT  * FROM  `operadores`  WHERE `id` = $id;");
         $result[0]['mensaje'] = '';
-        new Template('userVer', $result[0]);
+        new Template('operadorVer', $result[0]);
     }
-    private function nuevoUser(){
+    private function nuevoOperador(){
         $menu = $this->mysql->get("ndh_menu");
         $optionMenu = "";
         for($i = 0; $i < count($menu); $i++){
@@ -38,13 +38,14 @@ class users{
 
         //configguraciones adicionales
         $config = array("optionMenu" => $optionMenu);
-        new Template('userNuevo',  $config);
+        new Template('operadorNuevo',  $config);
     }
-    private function nuevoUserProcesar(){
+    private function nuevoOperadorProcesar(){
         $vars = $this->vars;
         $insertData = array(
                 'nombre' => htmlentities($vars['nombre']),
-                'email' => $vars['email'],
+                'direccion' => $vars['direccion'],
+                'tipo' => $vars['tipo'],
                 'user' => $vars['user'],
                 'pass' => md5($vars['pass']),
                 'privilegios' => implode(",", $vars["privilegios"]));
@@ -55,9 +56,9 @@ class users{
             echo "El usuario se ha cargado correctamente.";
         }
     }
-    private function editarUser(){
+    private function editarOperador(){
         $id = $this->vars['id'];
-        $result = $this->mysql->query("SELECT  * FROM  `ndh_users`  WHERE `id` = $id;");
+        $result = $this->mysql->query("SELECT  * FROM  `operadores`  WHERE `id` = $id;");
 
         $menu = $this->mysql->get("ndh_menu");
         $optionMenu = "";
@@ -74,11 +75,12 @@ class users{
 
         new Template('userEditar',  $result[0]);
     }
-    private function editarUserProcesar(){
+    private function editarOperadorProcesar(){
         $vars = $this->vars;
         $insertData = array(
                 'nombre' => htmlentities($vars['nombre']),
-                'email' => $vars['email'],
+                'direccion' => $vars['direccion'],
+                'tipo' => $vars['tipo'],
                 'user' => $vars['user'],
                 'privilegios' => implode(",", $vars["privilegios"]));
         
@@ -99,14 +101,14 @@ class users{
         
     }
 
-    private function eliminarUser(){
+    private function eliminarOperador(){
         $id = $this->vars['id'];
-        $result = $this->mysql->query("SELECT  * FROM  `ndh_users`  WHERE `id` = $id;");
-        Template('userEliminar',  $result[0]);
+        $result = $this->mysql->query("SELECT  * FROM  `operadores`  WHERE `id` = $id;");
+        Template('operadorEliminar',  $result[0]);
     }
-    private function eliminarUserProcesar(){
+    private function eliminarOperadorProcesar(){
         $this->mysql->where("id", $this->vars['id']);
-        $result = $this->mysql->delete('ndh_users');
+        $result = $this->mysql->delete('operadores');
 
         if($result){
             echo '<script>
@@ -117,11 +119,11 @@ class users{
             echo "No se realizo ningun cambio! ";
         }
     }
-    public function mostrar(){
-        $opcion = $this->opcion;
-        $this->$opcion();
+   // public function mostrar(){
+     //   $opcion = $this->opcion;
+       // $this->$opcion();
         
-    }
+   // }
     
 }
 
