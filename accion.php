@@ -15,7 +15,7 @@ if (!$_SESSION['session']['sesion_register']) {
 
 $name = $_GET['name'];
 
-if(in_array($name, $_SESSION['session']['priv'])){
+//if(in_array($name, $_SESSION['session']['priv'])){
 	$post = (isset($_POST)) ? $_POST:array();
 	$get = (isset($_GET)) ? $_GET:array();
 
@@ -24,7 +24,7 @@ if(in_array($name, $_SESSION['session']['priv'])){
 	else
 	    $result = new $name();
 	$result->mostrar();
-}else{
+/*}else{
 echo "Acceso restringido";
-}
+}*/
 ?>

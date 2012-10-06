@@ -119,11 +119,10 @@ class operadores{
             echo "No se realizo ningun cambio! ";
         }
     }
-   // public function mostrar(){
-     //   $opcion = $this->opcion;
-       // $this->$opcion();
-        
-   // }
+    public function mostrar(){
+        $opcion = $this->opcion;
+        $this->$opcion();
+    }
     
 }
 
