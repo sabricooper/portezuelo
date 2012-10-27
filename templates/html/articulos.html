@@ -8,28 +8,33 @@
 </head>
 <body>	
 	<section class="formulario">
-		<h1> Nuevo Articulo </h1>
-		<form action="accion.php?name=articulos&opcion=nuevoArticuloProcesar" method="post" id="login">
+		<form action="accion.php?name=articulos&opcion={metodo}" method="post" id="login">
 			<label for="nombre"> Nombre: </label>
-			<input type="text" name="nombre" id="nombre"><br>
+			<input type="text" name="nombre" id="nombre" value="{nombre}"><br>
 
 			<label for="descripcion"> Descripcion: </label>
-			<input type="text" name="descripcion" id="descripcion"><br>
+			<input type="text" name="descripcion" id="descripcion" value="{descripcion}"><br>
 
 			<label for="rubro"> Rubro: </label>
 			<select name="rubro" id="rubro">{rubro}</select><br>
 
 			<label for="codigo"> Codigo: </label>
-			<input type="text" name="codigo" id="codigo"><br>
+			<input type="text" name="codigo" id="codigo" value="{codigo}"><br>
+
+			<label for="precioLista"> Precio de Lista: </label>
+			<input type="text" name="precioLista" id="precioLista" value="{precioLista}"><br>
+
+			<label for="precioGremio"> Precio Gremio: </label>
+			<input type="text" name="precioGremio" id="precioGremio" value="{precioGremio}"><br>
 
 			<label for="existencia"> Existencia: </label>
-			<input type="text" name="existencia" id="existencia"><br>
+			<input type="text" name="existencia" id="existencia" value="{existencia}"><br>
 
 			<label for="puntodePedido"> Punto de Pedido: </label>
-			<input type="text" name="puntodePedido" id="puntodePedido"><br>
+			<input type="text" name="puntodePedido" id="puntodePedido" value="{puntodePedido}"><br>
 
 			<label for="existenciaOptima"> Existencia Optima: </label>
-			<input type="text" name="existenciaOptima" id="existenciaOptima"><br>
+			<input type="text" name="existenciaOptima" id="existenciaOptima" value="{existenciaOptima}"><br>
 
 			<input type="submit" name="guardar" id="guardar" value="Guardar">
 		 	

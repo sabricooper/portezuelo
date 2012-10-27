@@ -6,9 +6,9 @@
 
 class Inicio {
     var $config = array(
-        "titulo"    => "Administrador Portezuelo", 
+        "titulo"    => "Administrador Cuesta del Portezuelo", 
         "logo"      => "",
-        "footer"    => "&copy; 2012 - Sabricooper",
+        "footer"    => "&copy; 2012 - Sabrina Pascual",
         "urlLocal"  => SERVER_NAME
         );
     var $tpl_file;
