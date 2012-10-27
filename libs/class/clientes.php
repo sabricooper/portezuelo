@@ -22,11 +22,7 @@ class clientes{
 
 	public function nuevoArticulo(){
 		
- 		}
- 		$opciones= array(
- 			'metodo' => "nuevoClienteProcesar",
- 		);
-		new Template ("clientes", $opciones);
+ 		
 	}
 
 	public function nuevoClienteProcesar(){
@@ -48,9 +44,9 @@ class clientes{
 		}
 	}
 
-	public function editar(){
+	public function editarCliente(){
 		$cliente = $this->mysql->query("SELECT * FROM clientes =");
-		}
+		
  		$opciones= array( 
  			'metodo' => "editarClienteProcesar&id=".$this->vars['id'],
  			'nombre' => $cliente[0]['nombre'],
