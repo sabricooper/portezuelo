@@ -29,7 +29,7 @@ class clientes{
 		new Template ("clientes", $opciones);
 	}
 
-	public function nuevoArticuloProcesar(){
+	public function nuevoClienteProcesar(){
 	//	print_r($this->vars);
 		$datos = array(
 			'nombre' => htmlentities($this->vars['nombre']),
