@@ -9,7 +9,7 @@
 <body>	
 	<section class="formulario">
 		<h1> Operador </h1>
-		<form action="accion.php?name=operadores&opcion=nuevoOperadorProcesar" method="post" id="login">
+		<form action="accion.php?name=operadores&opcion={metodo}" method="post" id="login">
 			
 			<label for="nombre">Nombre: </label>
 			<input type="text" name="nombre" id="nombre" value="{nombre}"><br>
@@ -27,7 +27,7 @@
 			<input type="text" name="user" id="user" value="{user}"><br>
 
 			<label for="pass"> Pass: </label>
-			<input type="text" name="pass" id="pass" value="{pass}"><br>
+			<input type="text" name="pass" id="pass">{mensaje}<br>
 
 			<input type="submit" name="guardar" id="guardar" value="Guardar">
 		 	

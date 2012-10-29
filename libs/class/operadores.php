@@ -32,7 +32,7 @@ class Operadores{
 		$datos = array(
 			'nombre' => htmlentities($this->vars['nombre']),
 			'domicilio' => htmlentities($this->vars['domicilio']),
-			'celular' => $this->vars['celular'],
+			'telefono' => $this->vars['telefono'],
 			'tipo' => $this->vars['tipo'],
 			'user' => $this->vars['user'],
 			'pass'  => hash_hmac('ripemd128', $this->vars['pass'], KEY_PASS) 
@@ -51,25 +51,29 @@ class Operadores{
  			'metodo' => "editarOperadorProcesar&id=".$this->vars['id'],
  			'nombre' => $operador[0]['nombre'],
  			'domicilio' => $operador[0]['domicilio'],
- 			'celular' => $operador[0]['celular'],
+ 			'telefono' => $operador[0]['telefono'],
  			'tipo' => $operador[0]['tipo'],
  			'user'=>$operador[0]['user'],
- 			'pass'=>$operador[0]['pass']
+ 			'mensaje' => "(Modifique el campo solo si desea cambiar contraseña)"
  		);
 		new Template ("operadores", $opciones);
 
 	}
 	public function editarOperadorProcesar(){
+		if($this->vars['pass'] != '')
+			$pass = array('pass' => hash_hmac('ripemd128', $this->vars['pass'], KEY_PASS));
+		else
+			$pass = array();
+
 		$datos = array(
 			'nombre' => htmlentities($this->vars['nombre']),
 			'domicilio' => htmlentities($this->vars['domicilio']),
-			'celular' => $this->vars['celular'],
+			'telefono' => $this->vars['telefono'],
 			'tipo' => $this->vars['tipo'],
-			'user' => $this->vars['user'],
-			'pass' => $this->vars['pass']
+			'user' => $this->vars['user']
 		);
 		$this->mysql->where('id',$this->vars['id']);
-		$result = $this->mysql->update('operadores',$datos);
+		$result = $this->mysql->update('operadores',array_merge($datos , $pass));
 		if ($result) {
 			echo "Su cuenta se ha modificado correctamente";
 		}	
@@ -77,7 +81,7 @@ class Operadores{
 	}
 	public function eliminarOperador(){
 		echo "Esta seguro que quiere eliminar este Operador?<br>";
-		echo '<a href="accion.php?name=clientes&opcion=eliminarOperadorProcesar&id='.$this->vars['id'].'">Si</a> | <a href="javascript:window.parent.$(\'#windelet'.$this->vars['id'].'\').dialog(\'close\')">No</a>' ;
+		echo '<a href="accion.php?name=operadores&opcion=eliminarOperadorProcesar&id='.$this->vars['id'].'">Si</a> | <a href="javascript:window.parent.$(\'#windelet'.$this->vars['id'].'\').dialog(\'close\')">No</a>' ;
 
 	}
 	public function eliminarOperadorProcesar(){
