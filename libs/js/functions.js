@@ -45,6 +45,22 @@ function html_clientes(data){
     $(".cargando").hide("fast").remove();
     propiedadesTabla(data.length, "#clientesT");
 }
+
+function html_operadores(data){   
+    if(data.length>0){
+        $.each(data, function(i,v){
+            $("#contenedor tbody").append("<tr id='id_"+ v.id +"'>"+
+                "<td>" + v.id +"</td>"+
+                "<td>" + v.nombre + "</td>"+
+                "<td>" + v.user + "</td>"+
+                "<td><a id='edit"+v.id+"'class='nwin editar' title='Editar Operador' rev='700,400,center,true,iframe' href='accion.php?name=operadores&opcion=editarOperador&id="+ v.id+"'>Editar</a> | "+
+                "<a id='delet"+v.id+"'class='nwin eliminar' title='Eliminar Operador' rev='360,230,center,true,iframe' href='accion.php?name=operadores&opcion=eliminarOperador&id="+v.id+"'>Eliminar</a>"+
+                "</td></tr>");
+        });
+    }else $("#contenedor tbody").append("<tr class='tr5'><td colspan='6'><b>Aun no hay Clientes cargados.</b></td></tr>");
+    $(".cargando").hide("fast").remove();
+    propiedadesTabla(data.length, "#clientesT");
+}
 function propiedadesTabla(num, tabla){
     if(num>0){
         $(tabla).dataTable({

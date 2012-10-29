@@ -12,23 +12,24 @@
 		<form action="accion.php?name=operadores&opcion=nuevoOperadorProcesar" method="post" id="login">
 			
 			<label for="nombre">Nombre: </label>
-			<input type="text" name="nombre" id="nombre"><br>
+			<input type="text" name="nombre" id="nombre" value="{nombre}"><br>
 
 			<label for="domicilio">Domicilio: </label>
-			<input type="text" name="domicilio" id="domicilio"><br>
+			<input type="text" name="domicilio" id="domicilio" value="{domicilio}"><br>
+
 			<label for="telefono"> Telefono: </label>
-			<input type="text" name="telefono" id="telefono"><br>
+			<input type="text" name="telefono" id="telefono" value="{telefono}"><br>
 
 			<label for="tipo"> Tipo: </label>
-			<input type="text" name="tipo" id="tipo"><br>
+			<input type="text" name="tipo" id="tipo" value="{tipo}"><br>
 
 			<label for="user"> User: </label>
-			<input type="text" name="user" id="user"><br>
+			<input type="text" name="user" id="user" value="{user}"><br>
 
 			<label for="pass"> Pass: </label>
-			<input type="text" name="pass" id="pass"><br>
+			<input type="text" name="pass" id="pass" value="{pass}"><br>
 
-			<input type="button" name="guardar" id="guardar" value="Guardar">
+			<input type="submit" name="guardar" id="guardar" value="Guardar">
 		 	
 		</form>
 	</section>

@@ -13,82 +13,78 @@ class Operadores{
 			$this->opcion = 'listaOperadores';
 
 	}
-	public function listaClientes(){
-		$articulos = $this->mysql->query("SELECT clientes.*");
+	public function listaOperadores(){
+		$operadores = $this->mysql->query("SELECT * FROM operadores");
 
         header("content-type: text/javascript");
-        echo json_encode($clientes);
+        echo json_encode($operadores);
 	}
 
-	public function nuevoCliente(){
+		public function nuevoOperador(){
 		$opciones= array(
-			'metodo' => "nuevoArticuloProcesar",
+			'metodo' => "nuevoOperadorProcesar",
  		);
-		new Template ("clientes", $opciones);
+		new Template ("operadores", $opciones);
 	}
 
-	public function nuevoClienteProcesar(){
+	public function nuevoOperadorProcesar(){
 	//	print_r($this->vars);
 		$datos = array(
 			'nombre' => htmlentities($this->vars['nombre']),
-			'direccion' => htmlentities($this->vars['descripcion']),
-			'telefono' => $this->vars['telefono'],
+			'domicilio' => htmlentities($this->vars['domicilio']),
 			'celular' => $this->vars['celular'],
-			'provincia' => $this->vars['provincia'],
-			'localidad' => $this->vars['localidad'],
-			'cuit' => $this->vars['cuit']
-			//'pass'  => hash_hmac('ripemd128', $this->vars['pass'], KEY_PASS) 
+			'tipo' => $this->vars['tipo'],
+			'user' => $this->vars['user'],
+			'pass'  => hash_hmac('ripemd128', $this->vars['pass'], KEY_PASS) 
 		);
-		$result = $this->mysql->insert('clientes',$datos);
-		$idCliente = $this->mysql->getId();
+		$result = $this->mysql->insert('operadores',$datos);
+		$idOperador = $this->mysql->getId();
 		if ($result) {
-			echo "El Cliente se Ingreso correctamente";
+			echo "Su cuenta de Operador se ha cargador correctamente";
 		}
 	}
 
-	public function editarCliente(){
-		$cliente = $this->mysql->query("SELECT * FROM clientes =");
+	public function editarOperador(){
+		$operador = $this->mysql->query("SELECT * FROM operadores WHERE id =". $this->vars['id']);
 		
  		$opciones= array( 
- 			'metodo' => "editarClienteProcesar&id=".$this->vars['id'],
- 			'nombre' => $cliente[0]['nombre'],
- 			'direccion' => $cliente[0]['direccion'],
- 			'telefono' => $cliente[0]['telefono'],
- 			'celular' => $cliente[0]['celular'],
- 			'provincia' => $cliente[0]['provincia'],
- 			'localidad'=>$cliente[0]['localidad'],
- 			'cuit'=>$liente[0]['cuit']
+ 			'metodo' => "editarOperadorProcesar&id=".$this->vars['id'],
+ 			'nombre' => $operador[0]['nombre'],
+ 			'domicilio' => $operador[0]['domicilio'],
+ 			'celular' => $operador[0]['celular'],
+ 			'tipo' => $operador[0]['tipo'],
+ 			'user'=>$operador[0]['user'],
+ 			'pass'=>$operador[0]['pass']
  		);
-		new Template ("clientes", $opciones);
+		new Template ("operadores", $opciones);
 
 	}
-	public function editarClienteProcesar(){
+	public function editarOperadorProcesar(){
 		$datos = array(
 			'nombre' => htmlentities($this->vars['nombre']),
-			'direccion' => htmlentities($this->vars['direccion']),
-			'telefono' => $this->vars['telefono'],
+			'domicilio' => htmlentities($this->vars['domicilio']),
 			'celular' => $this->vars['celular'],
-			'provincia' => $this->vars['provincia'],
-			'localidad' => $this->vars['localidad'],
-			'cuit' => $this->vars['cuit']
+			'tipo' => $this->vars['tipo'],
+			'user' => $this->vars['user'],
+			'pass' => $this->vars['pass']
 		);
 		$this->mysql->where('id',$this->vars['id']);
-		$result = $this->mysql->update('clientes',$datos);
+		$result = $this->mysql->update('operadores',$datos);
 		if ($result) {
-			echo "El Cliente se ha modificado correctamente";
+			echo "Su cuenta se ha modificado correctamente";
 		}	
 
 	}
-	public function eliminarCliente(){
-		echo "Esta seguro que quiere eliminar este Cliente?<br>";
-		echo '<a href="accion.php?name=clientess&opcion=eliminarClienteProcesar&id='.$this->vars['id'].'">Si</a> | <a href="javascript:window.parent.$(\'#windelet'.$this->vars['id'].'\').dialog(\'close\')">No</a>' ;
+	public function eliminarOperador(){
+		echo "Esta seguro que quiere eliminar este Operador?<br>";
+		echo '<a href="accion.php?name=clientes&opcion=eliminarOperadorProcesar&id='.$this->vars['id'].'">Si</a> | <a href="javascript:window.parent.$(\'#windelet'.$this->vars['id'].'\').dialog(\'close\')">No</a>' ;
 
 	}
-	public function eliminarClienteProcesar(){
+	public function eliminarOperadorProcesar(){
 		$this->mysql->where('id',$this->vars['id']);
-		$result = $this->mysql->delete('clientes');
+		$result = $this->mysql->delete('operadores');
 		if ($result)
-		echo "Cliente Eliminado!";
+		echo "Cuenta Eliminada!";
 		echo "<script type='text/javascript'>
 
 			window.parent.$('tr#id_".$this->vars['id']."').remove();
