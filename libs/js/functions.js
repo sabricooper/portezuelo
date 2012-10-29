@@ -9,15 +9,7 @@ function active(linkActive){
 /* ************************************************************************************/
 
 function html_articulos(data){
-    var menu = $('<li><a href="accion.php?name=articulos&opcion=nuevoArticulo" class="nwin" id="nuevoArticulo" title="Nuevo Articulo" rev="700,400,center,true,iframe">Nuevo Articulo</a></li>');
-    $("nav.sub ul").html(menu);
-    var cabecera = $("<h1>Articulos</h1> "+
-                        "<table width='100%' cellspacing='0' cellpadding='0' id='users'>" +
-                        "<thead><tr><th>id</th><th>Codigo</th><th>Nombre</th><th>Stock</th><th></th></tr></thead>"+
-                        "<tbody></tbody>"+
-                        "</table>");
-    $("#contenedor").html(cabecera);  
-    if(data.length>0){
+     if(data.length>0){
         $.each(data, function(i,v){
             $("#contenedor tbody").append("<tr id='id_"+ v.id +"'>"+
                                 "<td>" + v.id +"</td>"+
@@ -29,42 +21,28 @@ function html_articulos(data){
                                 "</td></tr>");
         });
     }else $("#contenedor tbody").append("<tr class='tr5'><td colspan='6'><b>Aun no hay Articulos cargados.</b></td></tr>");
-    $("#contenedor").show("fast");
-    $("nav.sub ul").show("fast");
-    propiedadesTabla(data.length, "#users");
-    $(".nuevo").button();
+    propiedadesTabla(data.length, "#articulos");
     $(".cargando").hide("fast").remove();
 }
 
-function html_clientes(data){
-    var menu = $('<li><a href="accion.php?name=clientes&opcion=nuevoCliente" class="nwin" id="nuevoCliente" title="Nuevo Cliente" rev="700,400,center,true,iframe">Nuevo Cliente</a></li>');
-    $("nav.sub ul").html(menu);
-    var cabecera = $("<h1>Clientes</h1> "+
-                        "<table width='100%' cellspacing='0' cellpadding='0' id='users'>" +
-                        "<thead><tr><th>id</th><th>Codigo</th><th>Nombre</th><th></th></tr></thead>"+
-                        "<tbody></tbody>"+
-                        "</table>");
-    $("#contenedor").html(cabecera);  
+function html_clientes(data){   
     if(data.length>0){
         $.each(data, function(i,v){
             $("#contenedor tbody").append("<tr id='id_"+ v.id +"'>"+
-                                "<td>" + v.id +"</td>"+
-                                "<td>" + v.nombre + "</td>"+
-                                "<td>" + v.direccion + "</td>"+
-                                "<td>" + v.telefono + "</td>"+
-                                "<td>" + v.celular + "</td>"+
-                                "<td>" + v.provincia + "</td>"+
-                                "<td>" + v.localidad + "</td>"+
-                                "<td>" + v.cuit + "</td>"+
-                                "<a id='edit"+v.id+"'class='nwin editar' title='Editar Cliente' rev='700,400,center,true,iframe' href='accion.php?name=clientes&opcion=editarCliente&id="+ v.id+"'>Editar</a> | "+
-                                "<a id='delet"+v.id+"'class='nwin eliminar' title='Eliminar Cliente' rev='360,230,center,true,iframe' href='accion.php?name=clientes&opcion=eliminarCliente&id="+v.id+"'>Eliminar</a>"+
-                                "</td></tr>");
+                "<td>" + v.id +"</td>"+
+                "<td>" + v.nombre + "</td>"+
+                "<td>" + v.direccion + "</td>"+
+                "<td>" + v.telefono + "</td>"+
+                "<td>" + v.celular + "</td>"+
+                "<td>" + v.provincia + "</td>"+
+                "<td>" + v.localidad + "</td>"+
+                "<td>" + v.cuit + "</td>"+
+                "<a id='edit"+v.id+"'class='nwin editar' title='Editar Cliente' rev='700,400,center,true,iframe' href='accion.php?name=clientes&opcion=editarCliente&id="+ v.id+"'>Editar</a> | "+
+                "<a id='delet"+v.id+"'class='nwin eliminar' title='Eliminar Cliente' rev='360,230,center,true,iframe' href='accion.php?name=clientes&opcion=eliminarCliente&id="+v.id+"'>Eliminar</a>"+
+                "</td></tr>");
         });
     }else $("#contenedor tbody").append("<tr class='tr5'><td colspan='6'><b>Aun no hay Clientes cargados.</b></td></tr>");
-    $("#contenedor").show("fast");
-    $("nav.sub ul").show("fast");
-    propiedadesTabla(data.length, "#users");
-    $(".nuevo").button();
+    propiedadesTabla(data.length, "#clientes");
     $(".cargando").hide("fast").remove();
 }
 function propiedadesTabla(num, tabla){
@@ -85,7 +63,6 @@ function propiedadesTabla(num, tabla){
 }
 
 $(document).ready(function(){   
-	
     $("nav a").click(function(){
        active(this); 
     });
@@ -95,6 +72,17 @@ $(document).ready(function(){
         $('#contenedor').hide();
         $('nav.sub ul').hide();
         funcion = "html_"+$(this).attr("href");
+        $.ajax({
+            type: "GET", url: "templates/html/"+funcion+".html", dataType: "html",
+            success: function(template){
+                var template = $(template);
+                $("nav.sub ul").html($("ul.menu", template).html());
+                $("#contenedor").html($("div.cuerpo", template).html());
+                $("#contenedor").show("fast");
+                $("nav.sub ul").show("fast");
+                console.log(template);
+            }
+        });
         $.getJSON("accion.php?name=" + $(this).attr('href'), {}, eval(funcion)); 
     });
     $("a.ajax_request").click(function(e){
