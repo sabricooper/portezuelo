@@ -20,9 +20,11 @@ class clientes{
         echo json_encode($clientes);
 	}
 
-	public function nuevoArticulo(){
-		
- 		
+	public function nuevoCliente(){
+		$opciones= array(
+			'metodo' => "nuevoArticuloProcesar",
+ 		);
+		new Template ("clientes", $opciones);
 	}
 
 	public function nuevoClienteProcesar(){

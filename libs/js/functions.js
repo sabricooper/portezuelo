@@ -41,7 +41,7 @@ function html_clientes(data){
     $("nav.sub ul").html(menu);
     var cabecera = $("<h1>Clientes</h1> "+
                         "<table width='100%' cellspacing='0' cellpadding='0' id='users'>" +
-                        "<thead><tr><th>id</th><th>Codigo</th><th>Nombre</th><th>Stock</th><th></th></tr></thead>"+
+                        "<thead><tr><th>id</th><th>Codigo</th><th>Nombre</th><th></th></tr></thead>"+
                         "<tbody></tbody>"+
                         "</table>");
     $("#contenedor").html(cabecera);  
