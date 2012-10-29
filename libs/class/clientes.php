@@ -37,7 +37,6 @@ class clientes{
 			'provincia' => $this->vars['provincia'],
 			'localidad' => $this->vars['localidad'],
 			'cuit' => $this->vars['cuit']
-			//'pass'  => hash_hmac('ripemd128', $this->vars['pass'], KEY_PASS) 
 		);
 		$result = $this->mysql->insert('clientes',$datos);
 		$idCliente = $this->mysql->getId();
@@ -48,7 +47,6 @@ class clientes{
 
 	public function editarCliente(){
 		$cliente = $this->mysql->query("SELECT * FROM clientes WHERE id =". $this->vars['id']);
-		
  		$opciones= array( 
  			'metodo' => "editarClienteProcesar&id=".$this->vars['id'],
  			'nombre' => $cliente[0]['nombre'],
@@ -76,7 +74,8 @@ class clientes{
 		$result = $this->mysql->update('clientes',$datos);
 		if ($result) {
 			echo "El Cliente se ha modificado correctamente";
-		}	
+		}else 
+			echo "error: ".$this->mysql->error();
 
 	}
 	public function eliminarCliente(){

@@ -21,8 +21,8 @@ function html_articulos(data){
                                 "</td></tr>");
         });
     }else $("#contenedor tbody").append("<tr class='tr5'><td colspan='6'><b>Aun no hay Articulos cargados.</b></td></tr>");
-    $(".cargando").hide("fast").remove();
     propiedadesTabla(data.length, "#articulosT");
+    
 }
 
 function html_clientes(data){   
@@ -58,7 +58,6 @@ function html_operadores(data){
                 "</td></tr>");
         });
     }else $("#contenedor tbody").append("<tr class='tr5'><td colspan='6'><b>Aun no hay Clientes cargados.</b></td></tr>");
-    $(".cargando").hide("fast").remove();
     propiedadesTabla(data.length, "#clientesT");
 }
 function propiedadesTabla(num, tabla){
@@ -96,7 +95,7 @@ $(document).ready(function(){
                 $("#contenedor").html($("div.cuerpo", template).html());
                 $("#contenedor").show("fast");
                 $("nav.sub ul").show("fast");
-                console.log(template);
+                $(".cargando").hide("fast").remove();
             }
         });
         $.getJSON("accion.php?name=" + $(this).attr('href'), {}, eval(funcion)); 
