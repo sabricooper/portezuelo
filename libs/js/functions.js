@@ -21,8 +21,8 @@ function html_articulos(data){
                                 "</td></tr>");
         });
     }else $("#contenedor tbody").append("<tr class='tr5'><td colspan='6'><b>Aun no hay Articulos cargados.</b></td></tr>");
-    propiedadesTabla(data.length, "#articulos");
     $(".cargando").hide("fast").remove();
+    propiedadesTabla(data.length, "#articulosT");
 }
 
 function html_clientes(data){   
@@ -42,8 +42,8 @@ function html_clientes(data){
                 "</td></tr>");
         });
     }else $("#contenedor tbody").append("<tr class='tr5'><td colspan='6'><b>Aun no hay Clientes cargados.</b></td></tr>");
-    propiedadesTabla(data.length, "#clientes");
     $(".cargando").hide("fast").remove();
+    propiedadesTabla(data.length, "#clientesT");
 }
 function propiedadesTabla(num, tabla){
     if(num>0){
