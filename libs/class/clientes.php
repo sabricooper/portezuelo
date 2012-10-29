@@ -14,7 +14,7 @@ class clientes{
 
 	}
 	public function listaClientes(){
-		$articulos = $this->mysql->query("SELECT clientes.*");
+		$clientes = $this->mysql->query("SELECT * FROM clientes");
 
         header("content-type: text/javascript");
         echo json_encode($clientes);
@@ -22,7 +22,7 @@ class clientes{
 
 	public function nuevoCliente(){
 		$opciones= array(
-			'metodo' => "nuevoArticuloProcesar",
+			'metodo' => "nuevoClienteProcesar",
  		);
 		new Template ("clientes", $opciones);
 	}
@@ -31,7 +31,7 @@ class clientes{
 	//	print_r($this->vars);
 		$datos = array(
 			'nombre' => htmlentities($this->vars['nombre']),
-			'direccion' => htmlentities($this->vars['descripcion']),
+			'direccion' => htmlentities($this->vars['direccion']),
 			'telefono' => $this->vars['telefono'],
 			'celular' => $this->vars['celular'],
 			'provincia' => $this->vars['provincia'],
@@ -47,7 +47,7 @@ class clientes{
 	}
 
 	public function editarCliente(){
-		$cliente = $this->mysql->query("SELECT * FROM clientes =");
+		$cliente = $this->mysql->query("SELECT * FROM clientes WHERE id =". $this->vars['id']);
 		
  		$opciones= array( 
  			'metodo' => "editarClienteProcesar&id=".$this->vars['id'],
@@ -57,7 +57,7 @@ class clientes{
  			'celular' => $cliente[0]['celular'],
  			'provincia' => $cliente[0]['provincia'],
  			'localidad'=>$cliente[0]['localidad'],
- 			'cuit'=>$liente[0]['cuit']
+ 			'cuit'=>$cliente[0]['cuit']
  		);
 		new Template ("clientes", $opciones);
 
@@ -81,7 +81,7 @@ class clientes{
 	}
 	public function eliminarCliente(){
 		echo "Esta seguro que quiere eliminar este Cliente?<br>";
-		echo '<a href="accion.php?name=clientess&opcion=eliminarClienteProcesar&id='.$this->vars['id'].'">Si</a> | <a href="javascript:window.parent.$(\'#windelet'.$this->vars['id'].'\').dialog(\'close\')">No</a>' ;
+		echo '<a href="accion.php?name=clientes&opcion=eliminarClienteProcesar&id='.$this->vars['id'].'">Si</a> | <a href="javascript:window.parent.$(\'#windelet'.$this->vars['id'].'\').dialog(\'close\')">No</a>' ;
 
 	}
 	public function eliminarClienteProcesar(){

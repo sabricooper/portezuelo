@@ -37,7 +37,7 @@ function html_clientes(data){
                 "<td>" + v.provincia + "</td>"+
                 "<td>" + v.localidad + "</td>"+
                 "<td>" + v.cuit + "</td>"+
-                "<a id='edit"+v.id+"'class='nwin editar' title='Editar Cliente' rev='700,400,center,true,iframe' href='accion.php?name=clientes&opcion=editarCliente&id="+ v.id+"'>Editar</a> | "+
+                "<td><a id='edit"+v.id+"'class='nwin editar' title='Editar Cliente' rev='700,400,center,true,iframe' href='accion.php?name=clientes&opcion=editarCliente&id="+ v.id+"'>Editar</a> | "+
                 "<a id='delet"+v.id+"'class='nwin eliminar' title='Eliminar Cliente' rev='360,230,center,true,iframe' href='accion.php?name=clientes&opcion=eliminarCliente&id="+v.id+"'>Eliminar</a>"+
                 "</td></tr>");
         });

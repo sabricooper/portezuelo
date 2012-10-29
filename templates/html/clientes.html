@@ -9,29 +9,29 @@
 <body>	
 	<section class="formulario">
 		<h1> Clientes </h1>
-		<form action="" method="post" id="login">
+		<form action="accion.php?name=clientes&opcion={metodo}" method="post" id="login">
 			<label for="nombre"> Nombre: </label>
-			<input type="text" name="nombre" id="nombre"><br>
+			<input type="text" name="nombre" id="nombre"  value="{nombre}"><br>
 
 			<label for="direccion"> Direccion: </label>
-			<input type="text" name="direccion" id="direccion"><br>
+			<input type="text" name="direccion" id="direccion"  value="{direccion}"><br>
 
 			<label for="telefono"> Telefono: </label>
-			<input type="text" name="telefono" id="telefono"><br>
+			<input type="text" name="telefono" id="telefono"  value="{telefono}"><br>
 
 			<label for="celular"> Celular: </label>
-			<input type="text" name="celular" id="celular"><br>
+			<input type="text" name="celular" id="celular"  value="{celular}"><br>
 
 			<label for="provincia"> Provincia: </label>
-			<input type="text" name="provincia" id="provincia"><br>
+			<input type="text" name="provincia" id="provincia"  value="{provincia}"><br>
 
 			<label for="localidad"> Localidad: </label>
-			<input type="text" name="localidad" id="localidad"><br>
+			<input type="text" name="localidad" id="localidad"  value="{localidad}"><br>
 
 			<label for="cuit"> C.U.I.T: </label>
-			<input type="text" name="cuit" id="cuit"><br>
+			<input type="text" name="cuit" id="cuit"  value="{cuit}"><br>
 
-			<input type="button" name="guardar" id="guardar" value="Guardar">
+			<input type="submit" name="guardar" id="guardar" value="Guardar">
 		 	
 		</form>
 	</section>
