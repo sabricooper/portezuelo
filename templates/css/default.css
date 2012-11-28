@@ -180,3 +180,6 @@ input[type="text"]:focus, select:focus, textarea:focus, input[type="password"]:f
     border-color: #ADD8E6;
     box-shadow: 0 0 4px #008bff;
 }
+.no_width input[type="text"], .no_width input[type="password"], .no_width select {
+	width: inherit;
+}

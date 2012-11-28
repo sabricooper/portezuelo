@@ -22,8 +22,8 @@
 			<label for="fecha"> Fecha: </label>
 			<input type="text" name="fecha" id="fecha" value="{fecha}"><br>
 
-			<label for="cliente"> Cliente/es </label>
-			<input type="text" name="cliente" id="cliente" value="{cliente}"><br>
+			<label for="idCliente"> Cliente/es </label>
+			<input type="text" name="idCliente" id="idCliente" value="{idCliente}"><br>
 
 			<label for="direccion"> Direccion: </label>
 			<input type="text" name="direccion" id="direccion" value="{direccion}"><br>
@@ -48,8 +48,6 @@
 
 			<label for="remito"> Remito N°: </label>
 			<input type="text" name="remito" id="remito" value="{remito}"><br>
-
-			<input type="submit" name="guardar" id="guardar" value="Guardar">
 		 	
 		 	<table>
 		 		<thead>
@@ -77,16 +75,16 @@
 		 			<td>I.V.A no Insc</td>
 		 			<td>Total</td>
 		 		</tr></thead><tbody>
-			 		<tr>
-			 			<td><input type="text" name="descuento" id="descuento" value=""></td>
-			 			<td><input type="text" name="subtotal" id="subtotal"></td>
-			 			<td><input type="text" name="ivaInsc" id="ivaInsc"></td>
-			 			<td><input type="text" name="ivaNoInsc" id="ivaNoInsc"></td>
-			 			<td><input type="text" name="total" id="total"></td>
+			 		<tr class="no_width">
+			 			<td><input type="text" name="descuento" id="descuento" value="" size="5"></td>
+			 			<td><input type="text" name="subtotal" id="subtotal" size="5"></td>
+			 			<td><input type="text" name="ivaInsc" id="ivaInsc" size="5"></td>
+			 			<td><input type="text" name="ivaNoInsc" id="ivaNoInsc" size="5"></td>
+			 			<td><input type="text" name="total" id="total" size="5"></td>
 			 		</tr>	
 		 		</tbody>
 		 	</table>
-		 	
+		 	<input type="submit" name="guardar" id="guardar" value="Guardar">
 		</form>
 	</section>
 </body>	

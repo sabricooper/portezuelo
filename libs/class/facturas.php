@@ -53,7 +53,6 @@ class Facturas{
 		
  		$opciones= array( 
  			'metodo' => "editarFacturaProcesar&id=".$this->vars['id'],
- 			$datos = array(
 			'tipo' => $this->vars['tipo'],
 			'numero' =>($this->vars['numero']),
 			'fecha' => date("Y-m-d"),
@@ -71,7 +70,6 @@ class Facturas{
 	}
 	public function editarFacturaProcesar(){
 		$datos = array(
-			$datos = array(
 			'tipo' => $this->vars['tipo'],
 			'numero' =>($this->vars['numero']),
 			'fecha' => date("Y-m-d"),
