@@ -60,6 +60,24 @@ function html_operadores(data){
     }else $("#contenedor tbody").append("<tr class='tr5'><td colspan='6'><b>Aun no hay Clientes cargados.</b></td></tr>");
     propiedadesTabla(data.length, "#clientesT");
 }
+
+function html_facturas(data){
+    if(data.length>0){
+        $.each(data, function(i,v){
+            $("#contenedor tbody").append("<tr id='id_"+ v.id +"'>"+
+                "<td>" + v.id +"</td>"+
+                "<td>" + v.cliente + "</td>"+
+                "<td>" + v.fecha + "</td>"+
+                "<td><a id='edit"+v.id+"'class='nwin editar' title='Editar Factura' rev='700,400,center,true,iframe' href='accion.php?name=facturas&opcion=editarFactura&id="+ v.id+"'>Editar</a> | "+
+                "<td><a id='ver"+v.id+"'class='nwin ver' title='Ver Factura' rev='700,400,center,true,iframe' href='accion.php?name=facturas&opcion=VerFactura&id="+ v.id+"'>Verr</a> | "+
+                "<td><a id='imprimir"+v.id+"'class='nwin imprimir' title='Imprimir Factura' rev='700,400,center,true,iframe' href='accion.php?name=facturas&opcion=ImprimirFactura&id="+ v.id+"'>Imprimir</a> | "+
+                "<a id='delet"+v.id+"'class='nwin eliminar' title='Eliminar Factura rev='360,230,center,true,iframe' href='accion.php?name=facturas&opcion=eliminaFactura&id="+v.id+"'>Eliminar</a>"+
+                "</td></tr>");
+        });
+    }else $("#contenedor tbody").append("<tr class='tr5'><td colspan='6'><b>No existen Facturas</b></td></tr>");
+    propiedadesTabla(data.length, "#facturasT");
+}
+
 function propiedadesTabla(num, tabla){
     if(num>0){
         $(tabla).dataTable({

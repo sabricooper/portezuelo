@@ -1,0 +1,93 @@
+<!DOCTYPE HTML>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title> Cuesta del Portezuelo</title> 
+	<link rel="stylesheet" href="templates/css/default.css">
+	<link rel="shortcut icon" href="templates/img/icon.ico">
+</head>
+<body>	
+	<section class="formulario">
+		<form action="accion.php?name=facturas&opcion={metodo}" method="post" id="login">
+
+			<label for="tipo"> TIPO: </label>
+			<select name="tipo" id="tipo"> 
+				<option value="A">--- A ---</option>
+				<option value="B">--- B ---</option>
+			</select><br>
+
+			<label for="numero"> Numero: </label>
+			<input type="text" name="numero" id="numero" value="{numero}"><br>
+
+			<label for="fecha"> Fecha: </label>
+			<input type="text" name="fecha" id="fecha" value="{fecha}"><br>
+
+			<label for="cliente"> Cliente/es </label>
+			<input type="text" name="cliente" id="cliente" value="{cliente}"><br>
+
+			<label for="direccion"> Direccion: </label>
+			<input type="text" name="direccion" id="direccion" value="{direccion}"><br>
+
+			<label for="localidad"> Localidad: </label>
+			<input type="text" name="localidad" id="localidad" value="{localidad}"><br>
+
+			<label for="provincia"> Provincia: </label>
+			<input type="text" name="provincia" id="provincia" value="{provincia}"><br>
+
+			<label for="iva"> I.V.A: </label>
+			<input type="text" name="iva" id="iva" value="{iva}"><br>
+
+			<label for="cuit"> C.U.I.T: </label>
+			<input type="text" name="cuit" id="cuit" value="{cuit}"><br>
+
+			<label for="ingresosBrutos"> Ing. Brutos: </label>
+			<input type="text" name="ingresosBrutos" id="ingresosBrutos" value="{ingresosBrutos}"><br>
+
+			<label for="condicionDeVenta"> Cond. de venta: </label>
+			<input type="text" name="condicionDeVenta" id="condicionDeVenta" value="{condicionDeVenta}"><br>
+
+			<label for="remito"> Remito N°: </label>
+			<input type="text" name="remito" id="remito" value="{remito}"><br>
+
+			<input type="submit" name="guardar" id="guardar" value="Guardar">
+		 	
+		 	<table>
+		 		<thead>
+		 			<tr>
+		 				<th>Cantidad</th>
+		 				<th>Descripcion</th>
+		 				<th>Precio Unitario</th>
+		 				<th>Total</th>
+		 			</tr>
+		 		</thead>
+		 		<tbody>
+		 			<tr>
+		 				<td></td>
+		 				<td></td>
+		 				<td></td>
+		 				<td></td>
+		 			</tr>
+		 		</tbody>
+		 	</table>
+		 	<table>
+		 		<thead><tr>
+		 			<td>Descuento</td>
+		 			<td>Subtotal</td>
+		 			<td>I.V.A insc</td>
+		 			<td>I.V.A no Insc</td>
+		 			<td>Total</td>
+		 		</tr></thead><tbody>
+			 		<tr>
+			 			<td><input type="text" name="descuento" id="descuento" value=""></td>
+			 			<td><input type="text" name="subtotal" id="subtotal"></td>
+			 			<td><input type="text" name="ivaInsc" id="ivaInsc"></td>
+			 			<td><input type="text" name="ivaNoInsc" id="ivaNoInsc"></td>
+			 			<td><input type="text" name="total" id="total"></td>
+			 		</tr>	
+		 		</tbody>
+		 	</table>
+		 	
+		</form>
+	</section>
+</body>	
+</html>
